@@ -1,68 +1,23 @@
-import React from 'react'
-import axios from 'axios'
+import React from "react";
 
-const data = [
-    {
-      "id": 1,
-      "name": "No Dummy",
-      "artworkUrl": "default-album.jpg",
-      "artistId": 1,
-      "artist": {
-        "id": 1,
-        "name": "The Crash Test Dummies"
-      }
-    },
-    {
-      "id": 2,
-      "name": "I React to State",
-      "artworkUrl": "default-album.jpg",
-      "artistId": 1,
-      "artist": {
-        "id": 1,
-        "name": "The Crash Test Dummies"
-      }
-    }
-  ]
+const AllAlbums = (props) => {
+  const albums = props.albums;
 
-  class AllAlbums extends React.Component{
-    constructor(){
-        super()
-        this.state = {
-          albums: []
-        }
-    }
+  return (
+    <div id="albums" className="row wrap">
+      {albums.map((album) => {
+        return (
+          <div className="album" key={album.id}>
+            <a onClick={() => props.selectAlbum(album.id)}>
+              <img src={album.artworkUrl} />
+              <p>{album.name}</p>
+              <small>{album.artist.name}</small>
+            </a>
+          </div>
+        );
+      })}
+    </div>
+  );
+};
 
-    async componentDidMount() {
-      try {
-        const res = await axios.get('/api/albums');
-        const albums = res.data;
-        this.setState({ albums });
-      } catch (err) {
-        console.log('There was a problem making contact!');
-      }
-    }
-    
-    render(){
-        return(
-          <>
-            <div id='albums' className='row wrap'>
-              {this.state.albums.map(album =>{
-                return(
-                  <div className='album'>
-                    <a>
-                      <img src={album.artworkUrl} />
-                      <p>{album.name}</p>
-                      <small>{album.artist.name}</small>
-                    </a>
-                  </div>
-                )
-              })
-              }
-            </div>
-        </>
-        )
-    }
-}
-
-  
-export default AllAlbums
+export default AllAlbums;
