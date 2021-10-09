@@ -19,5 +19,5 @@ module.exports = {
   // The seed file expects to find them there!
   Album,
   Artist,
-  Song,
+  Song
 };

@@ -1,22 +1,18 @@
-import React from "react";
+import React from 'react'
 
-class Sidebar extends React.Component {
-  constructor() {
-    super();
-  }
+const Sidebar = (props) => {
+  const deselectAlbum = props.deselectAlbum
 
-  render() {
-    return (
-      <div id="sidebar">
-        <img src="juke.svg" id="logo" />
-        <section>
-          <h4>
-            <a onClick={this.props.deselectAlbum}>ALBUMS</a>
-          </h4>
-        </section>
-      </div>
-    );
-  }
+  return (
+    <div id='sidebar'>
+      <img src='juke.svg' id='logo' />
+      <section>
+        <h4>
+          <a onClick={deselectAlbum}>ALBUMS</a>
+        </h4>
+      </section>
+    </div>
+  )
 }
 
-export default Sidebar;
+export default Sidebar
