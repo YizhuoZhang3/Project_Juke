@@ -1,5 +1,7 @@
 # Juke
 
+![](https://media.giphy.com/media/7b9jH7ByKlMEJB69Ks/giphy.gif)
+
 ## Setup
 
 ### MacOS/Linux
